@@ -54,6 +54,21 @@ public class Panier
 				
 	}
 
+	public void retire()
+	{
+		this.liste.remove(this.liste.size()-1);
+	}
+
+	public double getPrix()
+	{
+		double total=0;
+		for(int i=0; i<this.getSize();i++)
+		{
+			total= total+this.liste.get(i).getPrix();
+		}
+		return total;
+	}
+
 	public static void main(String args[]) throws Exception
 	{
 		Panier p = new Panier(5);
@@ -65,12 +80,15 @@ public class Panier
 			if(p.estPlein())
 				System.out.println("le panier est plien");
 			if(p.ajoute(new Orange(9.99,"france")))
-			System.out.println("il y a "+p.getSize()+" element dans le panier de taille : "+p.getTaille());
+			System.out.println("il y a "+p.getSize()+" element dans le panier de taille : "+p.getTaille()+"est le prix est de "+p.getPrix());
 			else{
 				System.out.println("le panier est plien");
 			}
 
 		}
+		p.retire();
+			System.out.println("element retirer il y a "+p.getSize()+" element dans le panier de taille : "+p.getTaille()+"est le prix est de "+p.getPrix());
+			
 
 	}
 
