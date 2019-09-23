@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 public class Orange
 {
+
 	private double prix;
 	private String origine;
 
