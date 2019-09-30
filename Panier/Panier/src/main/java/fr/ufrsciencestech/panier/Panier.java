@@ -1,32 +1,29 @@
+import java.awt.GridLayout;
 import java.util.ArrayList;
+import javax.swing.*;
+import javax.swing.JFrame;
 
 public class Panier
 {
 	private ArrayList<Orange> liste;
-	private int taille;
-	
-
+	private int taille;	
 	public Panier(int t)
 	{
 		this.liste = new ArrayList<Orange>();
 		this.taille=t;
 	} 
-
 	public ArrayList getPanier()
 	{
 		return this.liste;
 	}
-
 	public int getTaille()
 	{
 		return this.taille;
 	}
-
 	public int getSize()
 	{
 		return this.liste.size();
 	}
-
 	public boolean estPlein()
 	{
 		if (this.getSize() == this.taille)
@@ -34,7 +31,6 @@ public class Panier
 		else
 			return false;
 	}
-
 	public boolean estVide()
 	{
 		if (this.getSize() == 0)
@@ -42,7 +38,6 @@ public class Panier
 		else
 			return false;
 	}
-
 	public boolean ajoute(Orange o)
 	{
 		if(this.getSize() < this.taille)
@@ -57,7 +52,6 @@ public class Panier
 	{
 		this.liste.remove(this.liste.size()-1);
 	}
-
 	public double getPrix()
 	{
 		double total=0;
@@ -66,8 +60,7 @@ public class Panier
 			total= total+this.liste.get(i).getPrix();
 		}
 		return total;
-        }
-        
+        }        
         public String toString(){
             String res ="";
             double total=0;
@@ -77,8 +70,7 @@ public class Panier
             }
             return res;
             
-        }
-        
+        }        
         public void boycotteOrigine(String s)
         {
             for(int i=0;i<this.liste.size();i++)
@@ -90,12 +82,21 @@ public class Panier
             
             
         }
-
 	public static void main(String args[]) throws Exception
 	{
+           /* JFrame fenetre = new JFrame();
+            fenetre.setTitle("Panier");
+            fenetre.setSize(300, 300);
+            fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            fenetre.setLocationRelativeTo(null);
+            fenetre.setLayout(new GridLayout(3, 1));
+            fenetre.getContentPane().add(new JButton("+"));
+            fenetre.getContentPane().add(new JLabel("0"));
+            fenetre.getContentPane().add(new JButton("-"));
+            fenetre.setVisible(true);*/
+    
             Panier p = new Panier(5);
 		
-
 		for(int i =0; i<8;i++){
 			if(p.estVide())
 				System.out.println("le panier est vide");
@@ -123,5 +124,4 @@ public class Panier
                 System.out.println(p2.toString());
                 
 	}
-
 }

@@ -5,10 +5,10 @@ import java.util.logging.Logger;
 public class Orange
 {
 
-	private double prix;
-	private String origine;
+    private double prix;
+    private String origine;
 
-	public Orange(double p, String o) throws Exception	
+    public Orange(double p, String o) throws Exception	
         {	
 		this.prix=p;
 		this.origine=o;
@@ -16,18 +16,30 @@ public class Orange
                     throw new Exception("prix invalide");
 	}
         
-
-	public double getPrix()
+    public double getPrix()
 	{
 		return this.prix;
 	}
 
-	public String getOrigine()
+    public String getOrigine()
 	{
 		return this.origine;
 	}
 
-	public static void main (String[] args){
+    public void setPrix(double prix) {
+        this.prix = prix;
+    }
+
+    public void setOrigine(String origine) {
+        this.origine = origine;
+    }
+
+    @Override
+    public String toString() {
+        return "Orange{" + "prix=" + prix + ", origine=" + origine + '}';
+    }
+    
+    public static void main (String[] args){
 	{
 		System.out.println("test");
             try {
